@@ -27,6 +27,7 @@ function getCurrentLevelXP(level) {
 
 // ── Badge definitions ────────────────────────────────────────────────────────
 const BADGE_META = {
+  "finance-rookie":  { label: "Finance Rookie",  icon: "💰" },
   "budget-master":  { label: "Budget Master",  icon: "🏛️" },
   "saving-starter": { label: "Saving Starter", icon: "🐷" },
   "investor":       { label: "Investor",        icon: "🚀" },
@@ -139,6 +140,7 @@ function LessonCard({ lesson, userXp, isCompleted, isActive, onAction }) {
 
 // ── BadgeShelf ───────────────────────────────────────────────────────────────
 function BadgeShelf({ earnedBadges }) {
+  console.log("earned badges:", earnedBadges);
   return (
     <div className="badge-shelf">
       {Object.entries(BADGE_META).map(([id, meta]) => {

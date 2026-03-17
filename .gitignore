@@ -12,7 +12,7 @@ node_modules
 dist
 dist-ssr
 *.local
-
+fixcontent.js
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,3 +23,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+z-test
+lessonData.js
+updateLessons.js
