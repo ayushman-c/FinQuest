@@ -1,0 +1,340 @@
+/* ── Simulator Section ──────────────────────────────────────────────────────── */
+.sim-section {
+  margin-top: 56px;
+}
+
+.sim-section__heading {
+  margin-bottom: 20px;
+}
+
+.sim-section__title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.sim-section__subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* ── Card base ──────────────────────────────────────────────────────────────── */
+.sim-card {
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+/* Locked state */
+.sim-card--locked {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Unlocked state */
+.sim-card--unlocked {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f4c2a 100%);
+  border: none;
+  box-shadow: 0 8px 32px rgba(22, 163, 74, 0.2);
+}
+
+.sim-card--unlocked:hover {
+  box-shadow: 0 12px 40px rgba(22, 163, 74, 0.28);
+}
+
+/* ── Left side ──────────────────────────────────────────────────────────────── */
+.sim-card__left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Status pill */
+.sim-card__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 4px 12px;
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.sim-card__pill--locked {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.sim-card__pill--unlocked {
+  background: rgba(22, 163, 74, 0.2);
+  color: #86efac;
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+/* Heading */
+.sim-card__heading {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sim-card--locked .sim-card__heading {
+  color: #0f172a;
+}
+
+.sim-card--unlocked .sim-card__heading {
+  color: #ffffff;
+}
+
+/* Description */
+.sim-card__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.sim-card--locked .sim-card__desc {
+  color: #64748b;
+}
+
+.sim-card--unlocked .sim-card__desc {
+  color: #94a3b8;
+}
+
+/* Features row */
+.sim-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sim-feature {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.sim-card--locked .sim-feature {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.sim-card--unlocked .sim-feature {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+}
+
+.sim-feature__icon {
+  font-size: 14px;
+}
+
+/* Launch button */
+.sim-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #16a34a;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  width: fit-content;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.4);
+  margin-top: 4px;
+}
+
+.sim-card__btn:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.5);
+}
+
+.sim-card__btn:active {
+  transform: translateY(0);
+}
+
+/* Progress bar */
+.sim-card__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sim-card__progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.sim-card__progress-pct {
+  font-weight: 700;
+  color: #16a34a;
+}
+
+.sim-progress-track {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.sim-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sim-card__remaining {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ── Right side visual ──────────────────────────────────────────────────────── */
+.sim-card__right {
+  flex-shrink: 0;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sim-visual {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Unlocked visual */
+.sim-visual--unlocked .sim-visual__icon {
+  font-size: 52px;
+  position: relative;
+  z-index: 2;
+  animation: sim-float 3s ease-in-out infinite;
+}
+
+@keyframes sim-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.sim-visual__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(22, 163, 74, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sim-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes sim-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.1); }
+}
+
+.sim-visual__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  animation: sim-ring-expand 3s ease-out infinite;
+}
+
+.sim-visual__ring--1 { width: 80px;  height: 80px;  animation-delay: 0s; }
+.sim-visual__ring--2 { width: 115px; height: 115px; animation-delay: 0.8s; }
+.sim-visual__ring--3 { width: 150px; height: 150px; animation-delay: 1.6s; }
+
+@keyframes sim-ring-expand {
+  0%   { opacity: 0.6; transform: scale(0.8); }
+  100% { opacity: 0;   transform: scale(1.2); }
+}
+
+/* Locked visual */
+.sim-visual--locked {
+  background: #f8fafc;
+  border: 1px dashed #e2e8f0;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.sim-visual__icon--locked {
+  font-size: 36px;
+  opacity: 0.4;
+}
+
+.sim-visual__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+/* Mini lesson dots */
+.sim-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  max-width: 120px;
+}
+
+.sim-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  transition: background 0.3s;
+}
+
+.sim-dot--done {
+  background: #16a34a;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sim-card {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 28px;
+  }
+
+  .sim-card__right {
+    width: 100%;
+  }
+
+  .sim-card__heading {
+    font-size: 18px;
+  }
+
+  .sim-card__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

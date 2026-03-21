@@ -4,6 +4,7 @@ import { auth, db } from "../../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, onSnapshot, collection, query, orderBy, getDocs } from "firebase/firestore";
 import "./Dashboard.css";
+import SimulatorSection from "../../components/simulator/SimulatorSection";
 
 // ── Level thresholds ─────────────────────────────────────────────────────────
 const LEVEL_THRESHOLDS = [0, 100, 250, 500, 850, 1300, 1900, 2600, 3400, 4300, 5300];
@@ -398,6 +399,12 @@ export default function Dashboard() {
 
           </aside>
         </div>
+
+        {/* Simulator unlock section */}
+        <SimulatorSection
+          completedCount={completedLessons.length}
+          totalCount={totalLessons}
+        />
       </main>
     </div>
   );
