@@ -263,3 +263,87 @@
   border-radius: 3px 3px 0 0;
   opacity: 0.75;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 60px 40px;
+    gap: 40px;
+  }
+
+  .hero-heading {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 48px 24px;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .hero-subtext {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-right {
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .hero-mockup-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 24px 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero-badge {
+    font-size: 12px;
+  }
+
+  .hero-subtext {
+    font-size: 14px;
+  }
+
+  .hero-badge-card {
+    top: -20px;
+    right: 10px;
+    padding: 8px 12px;
+  }
+
+  .hero-badge-card-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .hero-badge-card-value {
+    font-size: 12px;
+  }
+}

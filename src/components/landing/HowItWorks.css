@@ -69,3 +69,29 @@
   margin: 0;
   max-width: 240px;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hiw {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hiw {
+    padding: 48px 24px;
+  }
+
+  .hiw-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hiw-title {
+    font-size: 28px;
+  }
+  
+  .hiw-step-desc {
+    max-width: 100%;
+  }
+}

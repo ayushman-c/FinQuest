@@ -146,3 +146,53 @@
 .footer-legal-link:hover {
   color: #22c55e;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 56px 40px 0;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 48px 24px 0;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+    align-items: flex-start;
+  }
+
+  .footer-logo {
+    justify-content: flex-start;
+  }
+
+  .footer-tagline {
+    max-width: 100%;
+  }
+
+  .footer-socials {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .footer-legal {
+    gap: 16px;
+  }
+}

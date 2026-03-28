@@ -10,6 +10,20 @@
   animation: ap-in 0.25s ease;
 }
 
+@media (max-width: 500px) {
+  .ap { padding: 20px 16px; gap: 16px; }
+  .ap__header { flex-direction: column; align-items: stretch; gap: 8px; }
+  .ap__disposable { text-align: left; }
+  .ap__disposable-value { font-size: 20px; }
+  .ap__bucket { padding: 12px; }
+  .ap__bucket-top { gap: 8px; }
+  .ap__bucket-label { font-size: 13px; }
+  .ap__bucket-icon { font-size: 18px; }
+  .ap__input { font-size: 15px; padding: 8px 10px; }
+  .ap__max-btn { padding: 8px 12px; font-size: 11px; }
+  .ap__remaining-row { font-size: 12px; }
+}
+
 @keyframes ap-in {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -164,8 +178,15 @@
 
 /* Remove number input arrows */
 .ap__input::-webkit-outer-spin-button,
-.ap__input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.ap__input[type=number] { -moz-appearance: textfield; }
+.ap__input::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+  appearance: none;
+  margin: 0; 
+}
+.ap__input[type=number] { 
+  -moz-appearance: textfield; 
+  appearance: textfield;
+}
 
 .ap__max-btn {
   padding: 10px 14px;

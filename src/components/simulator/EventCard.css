@@ -237,3 +237,14 @@
 }
 
 .ec__continue-btn:hover { opacity: 0.88; }
+@media (max-width: 500px) {
+  .ec__card { padding: 24px 16px; }
+  .ec__emoji { font-size: 40px; }
+  .ec__title { font-size: 19px; }
+  .ec__desc { font-size: 14px; }
+  .ec__choice { padding: 12px 14px; font-size: 14px; gap: 10px; }
+  .ec__choice-letter { width: 26px; height: 26px; font-size: 11px; }
+  .ec__outcome { padding: 16px; }
+  .ec__outcome-result { font-size: 15px; }
+  .ec__tip { padding: 10px 12px; font-size: 13px; }
+}

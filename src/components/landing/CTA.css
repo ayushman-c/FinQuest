@@ -52,3 +52,34 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .cta-wrapper {
+    padding: 48px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-wrapper {
+    padding: 40px 24px;
+  }
+
+  .cta-card {
+    padding: 48px 24px;
+  }
+
+  .cta-title {
+    font-size: 32px;
+  }
+
+  .cta-subtitle {
+    font-size: 14px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}

@@ -70,3 +70,28 @@
   line-height: 1.65;
   margin: 0;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .features {
+    padding: 60px 40px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .features {
+    padding: 48px 24px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-title {
+    font-size: 28px;
+  }
+}

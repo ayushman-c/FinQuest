@@ -199,6 +199,12 @@
 .er__btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
 @media (max-width: 500px) {
+  .er__hero { padding: 32px 20px; }
+  .er__grade-letter { font-size: 48px; }
+  .er__grade-title { font-size: 19px; }
+  .er__final-score-value { font-size: 26px; }
   .er__stats-grid { grid-template-columns: 1fr; }
-  .er__actions    { flex-direction: column; }
+  .er__stat-value { font-size: 15px; }
+  .er__badge { padding: 6px 12px; font-size: 12px; }
+  .er__actions { flex-direction: column; }
 }

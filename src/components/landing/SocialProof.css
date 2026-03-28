@@ -118,3 +118,37 @@
   color: #111827;
   margin: 0;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .sp {
+    padding: 60px 40px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sp {
+    flex-direction: column;
+    padding: 48px 24px;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .sp-left {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .sp-card {
+    text-align: left;
+  }
+
+  .sp-stat-number {
+    font-size: 44px;
+  }
+
+  .sp-heading {
+    font-size: 26px;
+  }
+}

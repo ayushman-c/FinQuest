@@ -226,6 +226,14 @@
 }
 
 @media (max-width: 600px) {
-  .ss__rules { grid-template-columns: 1fr; }
+  .ss { padding: 24px 16px; }
+  .ss__rules { 
+    grid-template-columns: 1fr; 
+    margin: 20px 0 28px;
+  }
   .ss__title  { font-size: 26px; }
+  .ss__desc { font-size: 14px; }
+  .ss__tier { padding: 14px 16px; gap: 12px; }
+  .ss__tier-salary { font-size: 16px; }
+  .ss__tier-emoji { font-size: 24px; }
 }

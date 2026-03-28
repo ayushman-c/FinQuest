@@ -506,14 +506,31 @@ export default function SimulatorPage() {
   return (
     <div className="sp">
 
-      {/* Nav */}
+      {/* Navbar */}
       <header className="sp-nav">
-        <button className="sp-nav__back" onClick={() => navigate("/dashboard")}>← Dashboard</button>
-        <div className="sp-nav__center">
-          <span className="sp-nav__title">🎮 Financial Simulator</span>
-          <span className="sp-nav__pill">Month {gameState.month} / {TOTAL_MONTHS}</span>
+        <div className="sp-nav__left">
+          <button className="sp-nav__back" onClick={() => navigate("/dashboard")}>
+            <span className="sp-nav__back-icon">←</span>
+            <span className="sp-nav__back-text">Dashboard</span>
+          </button>
+          <div className="sp-nav__divider" />
+          <div className="sp-brand" onClick={() => navigate("/dashboard")}>
+            <div className="sp-brand__icon">FQ</div>
+            <span className="sp-brand__text">FinQuest</span>
+          </div>
         </div>
-        <span className="sp-nav__player">👤 {playerName}</span>
+
+        <div className="sp-nav__center">
+          <span className="sp-nav__pill">Simulation Mode</span>
+          <span className="sp-nav__month">Month {gameState.month} of {TOTAL_MONTHS}</span>
+        </div>
+
+        <div className="sp-nav__right">
+          <div className="sp-nav__player">
+            <span className="sp-nav__player-label">PLAYER</span>
+            <span className="sp-nav__player-name">{playerName}</span>
+          </div>
+        </div>
       </header>
 
       {/* Game area */}

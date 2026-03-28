@@ -357,20 +357,23 @@ export default function LessonPage() {
         <CelebrationModal {...celebration} onDone={() => navigate("/dashboard")} />
       )}
 
-      {/* ── Header ────────────────────────────────────────────────────────── */}
+      {/* Navbar */}
       <header className="lp-header">
-        <button className="lp-header__back" onClick={() => navigate("/dashboard")}>
-          ← Dashboard
-        </button>
+        <div className="lp-header__left">
+          <button className="lp-header__back" onClick={() => navigate("/dashboard")}>
+            <span className="lp-header__back-icon">←</span>
+            <span className="lp-header__back-text">Dashboard</span>
+          </button>
+          <div className="lp-header__divider" />
+          <div className="lp-brand" onClick={() => navigate("/dashboard")}>
+            <div className="lp-brand__icon">FQ</div>
+            <span className="lp-brand__text">FinQuest</span>
+          </div>
+        </div>
 
         <div className="lp-header__center">
+          <span className="lp-header__pill">Module {id}</span>
           <span className="lp-header__title">{lesson.title}</span>
-          <div className="lp-header__track">
-            <div
-              className="lp-header__fill"
-              style={{ width: phase === "content" ? `${progressPct}%` : "100%" }}
-            />
-          </div>
         </div>
 
         <div className="lp-header__right">

@@ -74,3 +74,35 @@
 .navbar-cta:hover {
   background-color: #16a34a;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .navbar-right {
+    gap: 16px;
+  }
+
+  .navbar-logo-text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-link {
+    display: none; /* Hide links on very small screens to fit CTA */
+  }
+  
+  .navbar-logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  .navbar-logo-text {
+    display: none; /* Only show icon on extra small screens */
+  }
+}
