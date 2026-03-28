@@ -190,9 +190,6 @@ A streak system that actually sends reminder notifications, using Firebase Cloud
 
 ---
 
-## The team
-
-Built at HACKONOMICS 2026 in [X] hours.
 
 ---
 
