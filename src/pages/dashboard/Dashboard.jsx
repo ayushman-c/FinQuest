@@ -5,6 +5,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { doc, onSnapshot, collection, query, orderBy, getDocs } from "firebase/firestore";
 import "./Dashboard.css";
 import SimulatorSection from "../../components/simulator/SimulatorSection";
+import Footer from "../../components/landing/Footer";
+import LeaderboardSection from "../../components/dashboard/LeaderboardSection";
 
 // ── Level thresholds ─────────────────────────────────────────────────────────
 const LEVEL_THRESHOLDS = [0, 100, 250, 500, 850, 1300, 1900, 2600, 3400, 4300, 5300];
@@ -169,14 +171,20 @@ export default function Dashboard() {
   const [lessons,  setLessons]    = useState([]);
   const [loading,  setLoading]    = useState(true);
   const [activeNav, setActiveNav] = useState("Learn");
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const NAV_LINKS = [
-    { name: "Learn",       icon: "📖" },
-    { name: "Simulator",   icon: "🎮" },
-    { name: "Leaderboard", icon: "🏆" },
-    { name: "Community",   icon: "👥" },
+    { name: "Learn",       icon: "📖", targetId: "lessons-section" },
+    { name: "Simulator",   icon: "🎮", targetId: "simulator-section" },
+    { name: "Leaderboard", icon: "🏆", targetId: "leaderboard-section" },
+    { name: "Community",   icon: "👥", targetId: "footer-section" },
   ];
+
+  const handleNavClick = (name, targetId) => {
+    setActiveNav(name);
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   // 1 — Auth state
   useEffect(() => {
@@ -207,14 +215,7 @@ export default function Dashboard() {
     fetchLessons();
   }, []);
 
-  // 4 — Search toggle scroll lock
-  useEffect(() => {
-    if (isSearchOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isSearchOpen]);
+
 
   // ── Derived values ───────────────────────────────────────────────────────
   const xp               = userData?.xp ?? 0;
@@ -264,7 +265,7 @@ export default function Dashboard() {
             <button
               key={link.name}
               className={`navbar__link${activeNav === link.name ? " navbar__link--active" : ""}`}
-              onClick={() => setActiveNav(link.name)}
+              onClick={() => handleNavClick(link.name, link.targetId)}
             >
               {link.name}
             </button>
@@ -272,42 +273,17 @@ export default function Dashboard() {
         </div>
 
         <div className="navbar__right">
-          <div className="navbar__search">
-            <span>🔍</span>
-            <input 
-              type="text" 
-              placeholder="Search modules..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="navbar__search-input"
-            />
-          </div>
-          <button className="navbar__search-mobile-trigger" onClick={() => setIsSearchOpen(true)}>
-            🔍
-          </button>
           <span className="navbar__bell">🔔</span>
-          <div className="navbar__avatar" onClick={handleSignOut} title="Sign out">
+          <button className="navbar__logout" onClick={handleSignOut} title="Sign out">
+             Logout
+          </button>
+          <div className="navbar__avatar">
             {authUser?.displayName?.[0]?.toUpperCase() || "U"}
           </div>
         </div>
       </nav>
 
-      {/* ── Mobile Search Overlay ────────────────────────────────────────── */}
-      {isSearchOpen && (
-        <div className="search-overlay">
-          <div className="search-overlay__content">
-            <div className="search-overlay__header">
-              <input 
-                type="text" 
-                placeholder="Search modules..." 
-                className="search-overlay__input"
-                autoFocus
-              />
-              <button className="search-overlay__close" onClick={() => setIsSearchOpen(false)}>✕</button>
-            </div>
-          </div>
-        </div>
-      )}
+
 
       {/* ── Main ───────────────────────────────────────────────────────────── */}
       <main className="dashboard__main">
@@ -359,7 +335,7 @@ export default function Dashboard() {
         <div className="dashboard__body">
 
           {/* Lessons */}
-          <section className="lessons-section">
+          <section className="lessons-section" id="lessons-section">
             <div className="lessons-section__header">
               <h2 className="lessons-section__title">Learning Modules</h2>
               <button className="lessons-section__view-all">View All →</button>
@@ -441,12 +417,17 @@ export default function Dashboard() {
           </aside>
         </div>
 
-        {/* Simulator unlock section */}
-        <SimulatorSection
-          completedCount={completedLessons.length}
-          totalCount={totalLessons}
-        />
+        <div id="simulator-section">
+          <SimulatorSection
+            completedCount={completedLessons.length}
+            totalCount={totalLessons}
+          />
+        </div>
       </main>
+
+      <div id="leaderboard-section">
+        <LeaderboardSection />
+      </div>
 
       {/* ── Bottom Nav (Mobile) ───────────────────────────────────────────── */}
       <nav className="bottom-nav">
@@ -454,13 +435,18 @@ export default function Dashboard() {
           <button
             key={link.name}
             className={`bottom-nav__item${activeNav === link.name ? " bottom-nav__item--active" : ""}`}
-            onClick={() => setActiveNav(link.name)}
+            onClick={() => handleNavClick(link.name, link.targetId)}
           >
             <span className="bottom-nav__icon">{link.icon}</span>
             <span className="bottom-nav__label">{link.name}</span>
           </button>
         ))}
       </nav>
+     
+         <div id="footer-section">
+            <Footer/>
+         </div>
+         <div className="space"></div>
     </div>
   );
 }

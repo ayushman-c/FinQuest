@@ -6,7 +6,7 @@ export default function Navbar() {
     <nav className="navbar">
       {/* Logo */}
       <div className="navbar-logo">
-        <div className="navbar-logo-icon">F</div>
+        <div className="navbar-logo-icon">FQ</div>
         <span className="navbar-logo-text">FinQuest</span>
       </div>
 
