@@ -11,6 +11,7 @@ const PLACEHOLDER_PLAYERS = [
 
 export default function LeaderboardSection() {
   return (
+    <div className="mainbox">
     <section className="lb-section">
 
       {/* Heading */}
@@ -74,5 +75,6 @@ export default function LeaderboardSection() {
 
       </div>
     </section>
+    </div>
   );
 }
