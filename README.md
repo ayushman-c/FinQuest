@@ -6,6 +6,8 @@ Most people learn about money the hard way — by making expensive mistakes in r
 
 The idea is simple: make financial education feel less like a textbook and more like something you actually want to come back to.
 
+🔗 [Live Demo – FinQuest](https://fin-quest-flax.vercel.app/)
+
 ---
 
 ## What it does
