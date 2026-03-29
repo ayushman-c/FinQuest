@@ -1,8 +1,9 @@
 /* ── Section wrapper ────────────────────────────────────────────────────────── */
 .lb-section {
   margin-top: 48px;
-  margin-left: 40px;
-  margin-right: 40px;
+  max-width: 1200px;
+  margin-left: 48px ;
+  margin-right: 48px;
   margin-bottom: 48px;
 }
 
@@ -213,6 +214,14 @@
   flex-shrink: 0;
 }
 
+
+
+@media (max-width: 768px){
+  .lb-section {
+    margin-left: 24px ;
+    margin-right: 24px;
+  }
+}
 /* ── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .lb-table__col--level,
